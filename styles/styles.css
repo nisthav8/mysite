@@ -13,6 +13,8 @@
 :root {
   /* colors */
   --background-color:cyan;
+  --banner-background-color: blue;
+  --banner-text-color: red;
   --light-color: #f8f8f8;
   --dark-color: #505050;
   --text-color: magenta;
