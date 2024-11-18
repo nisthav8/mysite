@@ -1,15 +1,11 @@
-.eds-banner-container{
-    background-color: rgb(230, 143, 14);
-}
-body{
-    background-color: white;
-}
 .eds-banner-wrapper{
-    background-color:  var(--banner-background-color);
+    background-color: yellow;
+
  }
+
 .eds-banner{
     color:var(--banner-text-color);
-    background-color: blueviolet;
+    background-color:  var(--banner-background-color);
 }
 
 

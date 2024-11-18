@@ -119,9 +119,11 @@ function loadDelayed() {
   window.setTimeout(() => import('./delayed.js'), 3000);
   // load anything that can be postponed to the latest here
 }
+
 async function loadPage() {
   await loadEager(document);
   await loadLazy(document);
   loadDelayed();
 }
+
 loadPage();
