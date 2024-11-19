@@ -1,10 +1,12 @@
 .eds-banner-container{
     display: block;
 }
+
 .eds-banner-wrapper{
     background-color: yellow;
 
  }
+ 
 .eds-banner{
     color:var(--banner-text-color);
     background-color:  var(--banner-background-color);
