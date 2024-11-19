@@ -557,6 +557,7 @@ function buildBlock(blockName, content) {
     });
     blockEl.appendChild(rowEl);
   });
+  // console.log("aee"+{blockEl});
   return blockEl;
 }
 
@@ -566,11 +567,14 @@ function buildBlock(blockName, content) {
  */
 async function loadBlock(block) {
   const status = block.dataset.blockStatus;
+  
   if (status !== 'loading' && status !== 'loaded') {
     block.dataset.blockStatus = 'loading';
     const { blockName } = block.dataset;
+    
     try {
       const cssLoaded = loadCSS(`${window.hlx.codeBasePath}/blocks/${blockName}/${blockName}.css`);
+      console.log(cssLoaded);
       const decorationComplete = new Promise((resolve) => {
         (async () => {
           try {
@@ -582,6 +586,7 @@ async function loadBlock(block) {
             }
           } catch (error) {
             // eslint-disable-next-line no-console
+            console.log("abc");
             console.log(`failed to load module for ${blockName}`, error);
           }
           resolve();
@@ -642,10 +647,23 @@ async function loadHeader(header) {
  */
 async function loadFooter(footer) {
   const footerBlock = buildBlock('footer', '');
+  console.log(footerBlock);
   footer.append(footerBlock);
+  console.log(footerBlock);
   decorateBlock(footerBlock);
+  console.log(footerBlock);
   return loadBlock(footerBlock);
 }
+
+// async function loadBanner(banner) {
+//   // console.log(footerBlock);
+//   const bannerBlock = buildBlock('eds-banner', '');
+//   console.log(bannerBlock);
+//   banner.append(bannerBlock);
+//   decorateBlock(bannerBlock);
+//   console.log(bannerBlock);
+//   return loadBlock(bannerBlock);
+// }
 
 /**
  * Wait for Image.

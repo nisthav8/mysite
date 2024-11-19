@@ -20,6 +20,7 @@ import {
 export async function loadFragment(path) {
   if (path && path.startsWith('/')) {
     const resp = await fetch(`${path}.plain.html`);
+    console.log(resp)
     if (resp.ok) {
       const main = document.createElement('main');
       main.innerHTML = await resp.text();
@@ -35,6 +36,7 @@ export async function loadFragment(path) {
 
       decorateMain(main);
       await loadSections(main);
+      console.log(main.innerHTML)
       return main;
     }
   }
