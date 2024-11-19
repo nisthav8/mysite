@@ -10,7 +10,6 @@
  * governing permissions and limitations under the License.
  */
 
-/* eslint-env browser */
 function sampleRUM(checkpoint, data) {
   // eslint-disable-next-line max-len
   const timeShift = () => (window.performance ? window.performance.now() : Date.now() - window.hlx.rum.firstReadTime);
@@ -574,7 +573,7 @@ async function loadBlock(block) {
     
     try {
       const cssLoaded = loadCSS(`${window.hlx.codeBasePath}/blocks/${blockName}/${blockName}.css`);
-      console.log(cssLoaded);
+      // console.log(cssLoaded);
       const decorationComplete = new Promise((resolve) => {
         (async () => {
           try {
@@ -586,7 +585,6 @@ async function loadBlock(block) {
             }
           } catch (error) {
             // eslint-disable-next-line no-console
-            console.log("abc");
             console.log(`failed to load module for ${blockName}`, error);
           }
           resolve();
@@ -640,6 +638,14 @@ async function loadHeader(header) {
   return loadBlock(headerBlock);
 }
 
+async function loadBanner(banner) {
+  const bannerBlock = buildBlock('eds-banner', '');
+  // console.log(bannerBlock);
+  banner.append(bannerBlock);
+  decorateBlock(bannerBlock);
+  // console.log(bannerBlock);
+  return loadBlock(bannerBlock);
+}
 /**
  * Loads a block named 'footer' into footer
  * @param footer footer element
@@ -647,23 +653,15 @@ async function loadHeader(header) {
  */
 async function loadFooter(footer) {
   const footerBlock = buildBlock('footer', '');
-  console.log(footerBlock);
+  // console.log(footerBlock);
   footer.append(footerBlock);
-  console.log(footerBlock);
+  // console.log(footerBlock);
   decorateBlock(footerBlock);
-  console.log(footerBlock);
+  // console.log(footerBlock);
   return loadBlock(footerBlock);
 }
 
-// async function loadBanner(banner) {
-//   // console.log(footerBlock);
-//   const bannerBlock = buildBlock('eds-banner', '');
-//   console.log(bannerBlock);
-//   banner.append(bannerBlock);
-//   decorateBlock(bannerBlock);
-//   console.log(bannerBlock);
-//   return loadBlock(bannerBlock);
-// }
+
 
 /**
  * Wait for Image.
@@ -735,6 +733,7 @@ export {
   loadCSS,
   loadFooter,
   loadHeader,
+  loadBanner,
   loadScript,
   loadSection,
   loadSections,

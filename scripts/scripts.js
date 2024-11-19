@@ -2,6 +2,7 @@ import {
   buildBlock,
   loadHeader,
   loadFooter,
+  loadBanner,
   decorateButtons,
   decorateIcons,
   decorateSections,
@@ -105,7 +106,11 @@ async function loadLazy(doc) {
 
   loadHeader(doc.querySelector('header'));
   loadFooter(doc.querySelector('footer'));
-  // loadBanner(doc.querySelector('eds-banner'));
+  const bannerElement=doc.createElement('eds-banner');
+  doc.body.append(bannerElement);
+  // bannerDiv.className = "eds-banner-wrapper";
+  // doc.body.appendChild(bannerDiv);
+  loadBanner(doc.querySelector('eds-banner'));
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
