@@ -106,7 +106,7 @@ async function loadLazy(doc) {
 
   loadHeader(doc.querySelector('header'));
   loadFooter(doc.querySelector('footer'));
-  const bannerElement=doc.createElement('eds-banner');
+  const bannerElement = doc.createElement('eds-banner');
   doc.body.append(bannerElement);
   // bannerDiv.className = "eds-banner-wrapper";
   // doc.body.appendChild(bannerDiv);

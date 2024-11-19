@@ -566,11 +566,9 @@ function buildBlock(blockName, content) {
  */
 async function loadBlock(block) {
   const status = block.dataset.blockStatus;
-  
   if (status !== 'loading' && status !== 'loaded') {
     block.dataset.blockStatus = 'loading';
     const { blockName } = block.dataset;
-    
     try {
       const cssLoaded = loadCSS(`${window.hlx.codeBasePath}/blocks/${blockName}/${blockName}.css`);
       // console.log(cssLoaded);
@@ -660,9 +658,6 @@ async function loadFooter(footer) {
   // console.log(footerBlock);
   return loadBlock(footerBlock);
 }
-
-
-
 /**
  * Wait for Image.
  * @param {Element} section section element
