@@ -635,15 +635,6 @@ async function loadHeader(header) {
   decorateBlock(headerBlock);
   return loadBlock(headerBlock);
 }
-
-async function loadBanner(banner) {
-  const bannerBlock = buildBlock('eds-banner', '');
-  // console.log(bannerBlock);
-  banner.append(bannerBlock);
-  decorateBlock(bannerBlock);
-  // console.log(bannerBlock);
-  return loadBlock(bannerBlock);
-}
 /**
  * Loads a block named 'footer' into footer
  * @param footer footer element
@@ -728,7 +719,6 @@ export {
   loadCSS,
   loadFooter,
   loadHeader,
-  loadBanner,
   loadScript,
   loadSection,
   loadSections,
